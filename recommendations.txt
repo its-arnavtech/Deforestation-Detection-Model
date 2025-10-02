@@ -1,0 +1,11 @@
+torch
+torchvision
+torchaudio
+rasterio
+geopandas
+xarray
+numpy
+pandas
+matplotlib
+sentinelsat
+earthengine-api
