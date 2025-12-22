@@ -104,7 +104,7 @@ task = ee.batch.Export.image.toDrive(
 )
 
 task.start()
-print("🚀 Export started... (this runs on Google servers)")  #print a message that the export has started
+print("🚀 Export started... (running on Google servers)")  #print a message that the export has started
 
 #poll task status
 #following loop checks status of export task and if it's done

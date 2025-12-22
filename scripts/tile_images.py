@@ -33,8 +33,8 @@ def tile_img(path):
                     tile_path, #path where tile is saved
                     "w", #open in write mode
                     driver="GTiff", #use geotiff format
-                    h = Tile_size, #set height to 512
-                    w = Tile_size, #same for width
+                    height=Tile_size, #set height to 512
+                    width = Tile_size, #same for width
                     count=src.count, #copy num of bands from src img
                     dtype=tile.dtype, #copy dt from src img
                     crs = src.crs, #copy coord reference system from src                    

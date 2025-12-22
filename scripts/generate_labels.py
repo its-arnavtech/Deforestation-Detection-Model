@@ -34,7 +34,7 @@ def reproject_to_tile(tile_path): #func to reproject hansen data to match specif
         reproject(
             source = TC_data, #src data: global hansen tree cover arr
             destination=tc_resampled, #destination arr to fill w reprojected data
-            src_transform=TC_meta["transfrom"], #geospatial transform of src data
+            src_transform=TC_meta["transform"], #geospatial transform of src data
             src_crs=TC_meta["crs"], # coordinate reference system of src data
             dst_transform=profile["transform"], #geospatial transform of destination (tile)
             dst_crs=profile["crs"], #coordinate reference system of destination(file)
@@ -48,7 +48,7 @@ def reproject_to_tile(tile_path): #func to reproject hansen data to match specif
         reproject(
             source = loss_data, #src data: global hansen loss year arr
             destination=loss_resampled, #destination arr to fill w reprojected data
-            src_transform=loss_meta["transfrom"], #geospatial transform of src data
+            src_transform=loss_meta["transform"], #geospatial transform of src data
             src_crs=loss_meta["crs"], # coordinate reference system of src data
             dst_transform=profile["transform"], #geospatial transform of destination (tile)
             dst_crs=profile["crs"], #coordinate reference system of destination(file)

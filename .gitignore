@@ -1,0 +1,12 @@
+# Virtual env + cache
+.venv/
+__pycache__/
+**/__pycache__/
+
+# Data (everything)
+data/
+
+# Big file types (extra safety)
+*.tif
+*.tiff
+*.pt
