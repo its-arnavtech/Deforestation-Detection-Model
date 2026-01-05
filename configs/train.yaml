@@ -1,0 +1,17 @@
+data:
+  pt_dir: data/dataset_pt
+  train_split: 0.8
+
+training:
+  epochs: 30
+  batch_size: 2
+  lr: 0.0003
+  num_workers: 4
+  amp: true
+
+model:
+  in_channels: 10
+  num_classes: 3
+
+loss:
+  class_weights: [1.0, 0.5, 2.0]  # boost deforestation
