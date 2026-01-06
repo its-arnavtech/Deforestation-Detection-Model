@@ -10,7 +10,7 @@ bad = 0
 counts = np.zeros(3, dtype=np.int64)
 
 for p in pts:
-    obj = torch.load(p, map_location="cpu")
+    obj = torch.load(p, map_location="cpu", weights_only=True)
     img = obj.get("image", None)
     m = obj.get("mask", None)
 
@@ -41,7 +41,7 @@ print("Pixel % (0,1,2):", (counts / max(total, 1) * 100).round(4).tolist())
 
 # Also check value range sanity for imagery (quick stats on 3 samples)
 for p in pts[:3]:
-    obj = torch.load(p, map_location="cpu")
+    obj = torch.load(p, map_location="cpu", weights_only=True)
     img = obj["image"]
     print(f"\n{p.name} image stats:")
     print("  dtype:", img.dtype, "min:", float(img.min()), "max:", float(img.max()), "mean:", float(img.mean()))

@@ -7,7 +7,7 @@ PT_PATH = sorted(Path("data/dataset_pt").glob("*.pt"))[0]
 ONNX_PATH = Path("artifacts/unet_deforestation.onnx")
 
 def main():
-    sample = torch.load(PT_PATH, map_location="cpu")
+    sample = torch.load(PT_PATH, map_location="cpu", weights_only=True)
     x = sample["image"].unsqueeze(0).numpy().astype(np.float32)
 
     print("Available providers:", ort.get_available_providers())

@@ -8,7 +8,7 @@ ONNX_PATH = Path("artifacts/unet_deforestation.onnx")
 OUT_PATH = Path("artifacts/pred_mask.npy")
 
 def main():
-    sample = torch.load(PT_PATH, map_location="cpu")
+    sample = torch.load(PT_PATH, map_location="cpu", weights_only=True)
     image = sample["image"].unsqueeze(0).numpy().astype(np.float32)  # [1,10,512,512]
     gt_mask = sample["mask"].numpy()                                 # [512,512]
 

@@ -3,6 +3,8 @@ import math
 import yaml
 from dataclasses import dataclass
 from pathlib import Path
+from safetensors.torch import save_file as safetensors_save_file
+
 
 import torch
 import torch.nn as nn
@@ -118,7 +120,9 @@ def main():
     # Checkpoints
     ckpt_dir = Path("checkpoints")
     ckpt_dir.mkdir(exist_ok=True)
-    best_path = ckpt_dir / "best.pt"
+    best_path = ckpt_dir / "best.pt"                 # for resume (contains optimizer etc.)
+    best_weights_path = ckpt_dir / "best.safetensors" # for secure inference/export (tensors only)
+
 
     best_miou = -1.0
 
@@ -175,17 +179,28 @@ def main():
         # Save best
         if miou.item() > best_miou:
             best_miou = miou.item()
-            torch.save(
-                {
-                    "epoch": epoch,
-                    "model_state": model.state_dict(),
-                    "optimizer_state": opt.state_dict(),
-                    "best_miou": best_miou,
-                    "config": cfg.__dict__,
-                },
-                best_path,
-            )
-            print(f"✅ Saved new best checkpoint: {best_path.as_posix()} (mIoU={best_miou:.4f})\n")
+
+    # 1) Save resume checkpoint (pickle-based; OK for your own local files)
+    torch.save(
+        {
+            "epoch": epoch,
+            "model_state": model.state_dict(),
+            "optimizer_state": opt.state_dict(),
+            "best_miou": best_miou,
+            "config": cfg.__dict__,
+        },
+        best_path,
+    )
+
+    # 2) Save secure weights-only checkpoint (no pickle)
+    # safetensors requires CPU tensors
+    state_cpu = {k: v.detach().cpu() for k, v in model.state_dict().items()}
+    safetensors_save_file(state_cpu, str(best_weights_path))
+
+    print(
+        f"✅ Saved new best checkpoint: {best_path.as_posix()} (resume)\n"
+        f"🔒 Saved secure weights: {best_weights_path.as_posix()} (safetensors, mIoU={best_miou:.4f})\n"
+    )
 
     print("Training done. Best mIoU:", best_miou)
 

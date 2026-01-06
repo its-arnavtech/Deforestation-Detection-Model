@@ -5,7 +5,7 @@ dataset_dir = "data/dataset_pt"
 files = [f for f in os.listdir(dataset_dir) if f.endswith(".pt")]
 
 sample_path = os.path.join(dataset_dir, files[0])
-sample = torch.load(sample_path)
+sample = torch.load(sample_path, map_location="cpu", weights_only=True)
 
 x = sample["image"]
 y = sample["mask"]
