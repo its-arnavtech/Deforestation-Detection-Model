@@ -1,0 +1,2 @@
+[console_scripts]
+deforestation = deforestation.cli:main

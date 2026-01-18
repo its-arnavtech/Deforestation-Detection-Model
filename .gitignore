@@ -1,47 +1,23 @@
-# ---- Python / venv ----
+# Virtual env + cache
 .venv/
-venv/
-ENV/
 __pycache__/
 **/__pycache__/
-*.py[cod]
-*.pyd
-*.pyo
+*.pyc
 
-# ---- OS / editor ----
-.DS_Store
-Thumbs.db
-.vscode/
-.idea/
-
-# ---- Build / packaging ----
-build/
-dist/
-*.egg-info/
-.eggs/
-pip-wheel-metadata/
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-
-# ---- Project outputs ----
+# Local data + outputs (DO NOT COMMIT)
+data/
 artifacts/
 checkpoints/
-logs/
-runs/
 
-# ---- Data ----
-data/
-
-# ---- Big / binary file types (extra safety) ----
+# Large / binary files
 *.tif
 *.tiff
-*.npy
-*.npz
 *.pt
-*.pth
 *.onnx
 *.safetensors
+*.npy
 
-# ---- Jupyter ----
-.ipynb_checkpoints/
+# OS/editor
+.vscode/
+.DS_Store
+Thumbs.db

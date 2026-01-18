@@ -1,2 +1,9 @@
-# Deforestation-Detection-Model
-This Model will predict deforestation across the globe using data from google earth engine
+# Deforestation Detection (ONNX)
+
+CLI + Python package to run deforestation segmentation on 512x512 Sentinel tiles using a U-Net exported to ONNX.
+
+## Install
+
+CPU (recommended default):
+```bash
+pip install deforestation-detection

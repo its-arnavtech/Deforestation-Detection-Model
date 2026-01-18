@@ -1,0 +1,20 @@
+Metadata-Version: 2.4
+Name: deforestation-detection
+Version: 0.1.0
+Summary: Deforestation segmentation from Sentinel-2 tiles using UNet + ONNX Runtime
+Author: Arnav Kumar
+License: MIT
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: rasterio
+Requires-Dist: tqdm
+Requires-Dist: pyyaml
+Requires-Dist: onnxruntime
+Provides-Extra: gpu
+Requires-Dist: onnxruntime-gpu; extra == "gpu"
+Provides-Extra: viz
+Requires-Dist: pillow; extra == "viz"
+
+# Deforestation-Detection-Model
+This Model will predict deforestation across the globe using data from google earth engine

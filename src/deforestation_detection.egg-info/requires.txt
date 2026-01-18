@@ -1,0 +1,11 @@
+numpy
+rasterio
+tqdm
+pyyaml
+onnxruntime
+
+[gpu]
+onnxruntime-gpu
+
+[viz]
+pillow
