@@ -1,12 +1,47 @@
-# Virtual env + cache
+# ---- Python / venv ----
 .venv/
+venv/
+ENV/
 __pycache__/
 **/__pycache__/
+*.py[cod]
+*.pyd
+*.pyo
 
-# Data (everything)
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ---- Build / packaging ----
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ---- Project outputs ----
+artifacts/
+checkpoints/
+logs/
+runs/
+
+# ---- Data ----
 data/
 
-# Big file types (extra safety)
+# ---- Big / binary file types (extra safety) ----
 *.tif
 *.tiff
+*.npy
+*.npz
 *.pt
+*.pth
+*.onnx
+*.safetensors
+
+# ---- Jupyter ----
+.ipynb_checkpoints/
