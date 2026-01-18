@@ -4,18 +4,13 @@ build-backend = "hatchling.build"
 
 [project]
 name = "deforestation-detection"
-version = "0.1.1"
+version = "0.1.2"
 description = "Deforestation segmentation from Sentinel tiles using a U-Net exported to ONNX."
 readme = "README.md"
 requires-python = ">=3.11"
 license = { file = "LICENSE" }
 authors = [{ name = "Arnav Kumar" }]
 keywords = ["remote-sensing", "segmentation", "onnx", "deforestation", "sentinel"]
-classifiers = [
-  "Programming Language :: Python :: 3",
-  "License :: OSI Approved :: MIT License",
-  "Operating System :: OS Independent",
-]
 
 dependencies = [
   "numpy>=1.26",
@@ -25,25 +20,18 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = [
-  "ruff>=0.6",
-  "pytest>=8.0",
-  "build>=1.2",
-  "twine>=5.0",
-]
-gpu = [
-  "onnxruntime-gpu>=1.17.0",
-]
+dev = ["ruff>=0.6", "pytest>=8.0", "build>=1.2", "twine>=5.0"]
+gpu = ["onnxruntime-gpu>=1.17.0"]
 
 [project.scripts]
 deforestation = "deforestation.cli:main"
 
-[tool.hatch.build]
-# ensure src-layout works
-sources = ["src"]
-
+# KEY FIX: tell hatch we're using src/ layout and include the package
 [tool.hatch.build.targets.wheel]
 packages = ["src/deforestation"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/deforestation", "README.md", "LICENSE", "pyproject.toml"]
 
 [tool.ruff]
 line-length = 100
