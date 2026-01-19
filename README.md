@@ -9,7 +9,7 @@ This repository contains:
 -  Secure model loading (no pickled models)
 -  No bundled model weights (download separately)
 
-> **Models are distributed separately via Hugging Face** to keep this package lightweight and secure.
+> **Model may be distributed separately via Hugging Face** to keep this package lightweight and secure.
 
 ---
 
