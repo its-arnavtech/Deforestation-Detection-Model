@@ -1,13 +1,37 @@
-# deforestation-detection
+# 🌲 Deforestation Detection (ONNX)
 
-CLI + Python package to run deforestation segmentation on 512×512 Sentinel tiles using a U-Net exported to ONNX.
+A **CLI tool and Python package** for running **deforestation segmentation** on **512×512 Sentinel-2 tiles** using a **U-Net model exported to ONNX**.
 
-> This package ships **code only**..
+This repository contains:
+- Inference-ready CLI (`deforestation`)
+-  Clean Python API
+-  ONNX Runtime (CPU & GPU)
+-  Secure model loading (no pickled models)
+-  No bundled model weights (download separately)
 
-## Install
+> **Models are distributed separately via Hugging Face** to keep this package lightweight and secure.
 
-CPU(in bash):
+---
+
+## Features
+
+-  Remote sensing–focused (Sentinel-2, 10 bands)
+-  U-Net semantic segmentation
+-  ONNX Runtime for fast inference
+-  CPU-only by default
+-  Optional GPU acceleration (CUDA)
+-  No unsafe `torch.load` usage
+-  PyPI-published, production-ready
+
+---
+
+## Installation
+
+### CPU (default)
+```bash
 pip install deforestation-detection
+```
 
-For GPU(in bash):
-pip install "deforestation-detection[gpu]"
+### GPU (default)
+```bash
+pip install deforestation-detection[gpu]
