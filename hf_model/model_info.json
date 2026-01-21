@@ -1,0 +1,5 @@
+{
+  "input_bands": 10,
+  "tile_size": 512,
+  "format": "onnx"
+}
