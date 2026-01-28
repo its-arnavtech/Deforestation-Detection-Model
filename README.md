@@ -50,8 +50,13 @@ pip install deforestation-detection
 
 ### Download the Model (Required)
 
-The ONNX model is hosted on Hugging Face:
+## The ONNX model is hosted on Hugging Face:
 https://huggingface.co/ItsArca/deforestation-unet-onnx
+
+### Using the Program
+
+## Run the following Command: 
+deforestation predict --onnx models\unet_deforestation.onnx --tile <your data, could consist of a folder of tiles> --out pred_mask.npy
 
 ## Download it using the Hugging Face CLI:
 
